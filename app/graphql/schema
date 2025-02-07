@@ -1,0 +1,26 @@
+type Product {
+    ProductId: ID!
+    Name: String!
+    Description: String
+    Price: Float!
+    Category: String!
+    Stock: Int!
+    CreatedAt: String
+    UpdatedAt: String
+}
+
+type Query {
+    getProduct(ProductId: ID!): Product
+    listProductsByCategory(Category: String!): [Product]
+}
+
+type Mutation {
+    createProduct(Name: String!, Description: String, Price: Float!, Category: String!, Stock: Int!): Product
+    updateProduct(ProductId: ID!, Name: String, Description: String, Price: Float, Category: String, Stock: Int): Product
+    deleteProduct(ProductId: ID!): String
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}
